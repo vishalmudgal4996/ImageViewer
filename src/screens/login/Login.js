@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
+import Header from "../../common/header/Header";
 
 class Login extends Component {
   constructor() {
@@ -7,7 +8,11 @@ class Login extends Component {
     this.state = {};
   }
   render() {
-    return <div>Login page</div>;
+    return (
+      <div>
+        <Header />
+      </div>
+    );
   }
 }
 
