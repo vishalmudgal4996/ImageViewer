@@ -59,7 +59,7 @@ class Login extends Component {
         (this.state.password === password)
       ) {
         this.setState({ invalidCredentials: "dispNone" });
-        console.log("successful");
+        sessionStorage.setItem("access-token", access_token);
       } else {
         this.setState({ invalidCredentials: "dispBlock" });
       }
