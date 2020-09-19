@@ -1,13 +1,19 @@
 .app-header {
   background-color: #263238;
-  height: 38px;
-  padding: 8px 16px 8px 16px;
+  height: 44px;
+  /* padding: 8px 16px 8px 16px; */
+}
+
+.flex-container-header {
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .app-logo {
-  height: 38px;
-  display: flex;
-  align-items: center;
+  width: 8%;
+  text-align: center;
 }
 
 .app-logo-text {
@@ -15,3 +21,11 @@
   font-size: 18px;
 }
 
+.homepage-header {
+  width: max-content;
+  display: flex;
+}
+
+.homepage-header > div {
+  margin-right: 15px;
+}
