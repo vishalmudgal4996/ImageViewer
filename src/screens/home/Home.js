@@ -69,7 +69,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Header searchbox="true" showavatar="true" />
+        <Header homeOptions="true" />
       </div>
     );
   }

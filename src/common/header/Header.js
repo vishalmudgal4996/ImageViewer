@@ -109,47 +109,51 @@ class Header extends Component {
             <div className="app-logo">
               <span className="app-logo-text">Image Viewer</span>
             </div>
-            <div className="homepage-header">
-              <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
+            {this.props.homeOptions === "true" ? (
+              <div className="homepage-header">
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <SearchIcon />
+                  </div>
+                  <InputBase
+                    placeholder="Search…"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                    inputProps={{ "aria-label": "search" }}
+                  />
                 </div>
-                <InputBase
-                  placeholder="Search…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                  inputProps={{ "aria-label": "search" }}
-                />
+                <div className="avatar">
+                  <IconButton
+                    aria-label="account of current user"
+                    aria-controls="customized-menu"
+                    aria-haspopup="true"
+                    onClick={this.handleMenu}
+                    color="inherit"
+                  >
+                    <AccountCircle style={{ fontSize: 48 }} />
+                  </IconButton>
+                  <StyledMenu
+                    id="customized-menu"
+                    anchorEl={this.state.anchorEl}
+                    keepMounted
+                    open={Boolean(this.state.anchorEl)}
+                    onClose={this.handleClose}
+                  >
+                    <StyledMenuItem onClick={this.handleClose}>
+                      My Account
+                    </StyledMenuItem>
+                    <hr style={{ width: "75%" }} />
+                    <StyledMenuItem onClick={this.handleClose}>
+                      Logout
+                    </StyledMenuItem>
+                  </StyledMenu>
+                </div>
               </div>
-              <div className="avatar">
-                <IconButton
-                  aria-label="account of current user"
-                  aria-controls="customized-menu"
-                  aria-haspopup="true"
-                  onClick={this.handleMenu}
-                  color="inherit"
-                >
-                  <AccountCircle style={{ fontSize: 48 }} />
-                </IconButton>
-                <StyledMenu
-                  id="customized-menu"
-                  anchorEl={this.state.anchorEl}
-                  keepMounted
-                  open={Boolean(this.state.anchorEl)}
-                  onClose={this.handleClose}
-                >
-                  <StyledMenuItem onClick={this.handleClose}>
-                    My Account
-                  </StyledMenuItem>
-                  <hr style={{ width: "75%" }} />
-                  <StyledMenuItem onClick={this.handleClose}>
-                    Logout
-                  </StyledMenuItem>
-                </StyledMenu>
-              </div>
-            </div>
+            ) : (
+              ""
+            )}
           </div>
         </header>
       </div>
