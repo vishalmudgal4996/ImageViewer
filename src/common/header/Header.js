@@ -3,6 +3,10 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { withStyles } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 
 const styles = (theme) => ({
   search: {
@@ -16,6 +20,7 @@ const styles = (theme) => ({
       marginLeft: theme.spacing(3),
       width: "300px",
     },
+    height: "38px",
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -41,11 +46,60 @@ const styles = (theme) => ({
   },
 });
 
+const StyledMenu = withStyles({
+  paper: {
+    border: "none",
+    backgroundColor: "#DFDFDF",
+    padding: 6,
+    marginTop: 0,
+    borderRadius: "12px",
+  },
+})((props) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: "bottom",
+      horizontal: "center",
+    }}
+    transformOrigin={{
+      vertical: "top",
+      horizontal: "center",
+    }}
+    {...props}
+  />
+));
+
+const StyledMenuItem = withStyles((theme) => ({
+  root: {
+    maxHeight: "20px",
+    "&:focus": {
+      backgroundColor: "",
+      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+        color: theme.palette.common.white,
+      },
+    },
+    fontWeight: "bolder",
+  },
+}))(MenuItem);
+
 class Header extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      anchorEl: null,
+      open: false,
+    };
   }
+
+  handleMenu = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+
   render() {
     const { classes } = this.props;
     return (
@@ -69,7 +123,32 @@ class Header extends Component {
                   inputProps={{ "aria-label": "search" }}
                 />
               </div>
-              <div className="avatar">avatar</div>
+              <div className="avatar">
+                <IconButton
+                  aria-label="account of current user"
+                  aria-controls="customized-menu"
+                  aria-haspopup="true"
+                  onClick={this.handleMenu}
+                  color="inherit"
+                >
+                  <AccountCircle style={{ fontSize: 48 }} />
+                </IconButton>
+                <StyledMenu
+                  id="customized-menu"
+                  anchorEl={this.state.anchorEl}
+                  keepMounted
+                  open={Boolean(this.state.anchorEl)}
+                  onClose={this.handleClose}
+                >
+                  <StyledMenuItem onClick={this.handleClose}>
+                    My Account
+                  </StyledMenuItem>
+                  <hr style={{ width: "75%" }} />
+                  <StyledMenuItem onClick={this.handleClose}>
+                    Logout
+                  </StyledMenuItem>
+                </StyledMenu>
+              </div>
             </div>
           </div>
         </header>

@@ -1,11 +1,11 @@
 .app-header {
   background-color: #263238;
-  height: 44px;
+  height: 60px;
   /* padding: 8px 16px 8px 16px; */
 }
 
 .flex-container-header {
-  height: 44px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,8 +24,6 @@
 .homepage-header {
   width: max-content;
   display: flex;
-}
-
-.homepage-header > div {
-  margin-right: 15px;
+  height: 42px;
+  align-items: center;
 }
