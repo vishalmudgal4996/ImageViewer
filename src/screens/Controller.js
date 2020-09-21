@@ -1,26 +1,34 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "../screens/login/Login";
 import Home from "../screens/home/Home";
+import PrivateRoute from "../common/PrivateRoute";
 
 class Controller extends Component {
   constructor() {
     super();
     this.baseUrl = "";
+    this.state = {
+      loggedIn: sessionStorage.getItem("access-token") == null ? false : true,
+    };
   }
   render() {
     return (
       <Router>
         <div className="main-container">
-          <Route
-            exact
-            path="/"
-            render={(props) => <Login {...props} baseUrl={this.baseUrl} />}
-          />
-          <Route
-            path="/home"
-            render={(props) => <Home {...props} baseUrl={this.baseUrl} />}
-          />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) => <Login {...props} baseUrl={this.baseUrl} />}
+            />
+            <PrivateRoute
+              exact
+              path="/home"
+              component={Home}
+              baseUrl={this.baseUrl}
+            />{" "}
+          </Switch>
         </div>
       </Router>
     );

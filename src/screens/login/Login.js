@@ -34,6 +34,7 @@ class Login extends Component {
       password: "",
       passwordRequired: "dispNone",
       invalidCredentials: "dispNone",
+      loggedIn: sessionStorage.getItem("access-token") == null ? false : true,
     };
   }
 
@@ -60,6 +61,9 @@ class Login extends Component {
       ) {
         this.setState({ invalidCredentials: "dispNone" });
         sessionStorage.setItem("access-token", access_token);
+        //pushing to home page
+        this.props.history.push("/home/");
+        this.setState({ loggedIn: true });
       } else {
         this.setState({ invalidCredentials: "dispBlock" });
       }
