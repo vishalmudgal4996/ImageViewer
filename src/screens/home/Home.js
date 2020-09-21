@@ -127,173 +127,173 @@ class Home extends Component {
       that.setState({ allMediaData: mediaData });
     }, 1000);
 
-    // //xhr for third post
+    //xhr for third post
 
-    // let xhr1 = new XMLHttpRequest();
-    // let url1 =
-    //   "https://graph.instagram.com/" +
-    //   mediaId[2] +
-    //   "?fields=id,media_type,media_url,username,timestamp&access_token=" +
-    //   access_token;
-    // xhr1.addEventListener("readystatechange", function() {
-    //   if (this.readyState === 4) {
-    //     mediaData.push(JSON.parse(this.responseText));
-    //   }
-    // });
-    // xhr1.open("GET", url1);
-    // xhr1.setRequestHeader("Cache-Control", "no-cache");
-    // xhr1.send(data);
+    let xhr1 = new XMLHttpRequest();
+    let url1 =
+      "https://graph.instagram.com/" +
+      mediaId[2] +
+      "?fields=id,media_type,media_url,username,timestamp&access_token=" +
+      access_token;
+    xhr1.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        mediaData.push(JSON.parse(this.responseText));
+      }
+    });
+    xhr1.open("GET", url1);
+    xhr1.setRequestHeader("Cache-Control", "no-cache");
+    xhr1.send(data);
 
-    // setTimeout(function() {
-    //   that.setState({ allMediaData: mediaData });
-    // }, 1000);
+    setTimeout(function() {
+      that.setState({ allMediaData: mediaData });
+    }, 1000);
 
-    // //xhr for fourth post
+    //xhr for fourth post
 
-    // let xhr2 = new XMLHttpRequest();
-    // let url2 =
-    //   "https://graph.instagram.com/" +
-    //   mediaId[3] +
-    //   "?fields=id,media_type,media_url,username,timestamp&access_token=" +
-    //   access_token;
-    // xhr2.addEventListener("readystatechange", function() {
-    //   if (this.readyState === 4) {
-    //     mediaData.push(JSON.parse(this.responseText));
-    //   }
-    // });
-    // xhr2.open("GET", url2);
-    // xhr2.setRequestHeader("Cache-Control", "no-cache");
-    // xhr2.send(data);
+    let xhr2 = new XMLHttpRequest();
+    let url2 =
+      "https://graph.instagram.com/" +
+      mediaId[3] +
+      "?fields=id,media_type,media_url,username,timestamp&access_token=" +
+      access_token;
+    xhr2.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        mediaData.push(JSON.parse(this.responseText));
+      }
+    });
+    xhr2.open("GET", url2);
+    xhr2.setRequestHeader("Cache-Control", "no-cache");
+    xhr2.send(data);
 
-    // setTimeout(function() {
-    //   that.setState({ allMediaData: mediaData });
-    // }, 1000);
+    setTimeout(function() {
+      that.setState({ allMediaData: mediaData });
+    }, 1000);
 
-    // //xhr for fifth post
+    //xhr for fifth post
 
-    // let xhr3 = new XMLHttpRequest();
-    // let url3 =
-    //   "https://graph.instagram.com/" +
-    //   mediaId[4] +
-    //   "?fields=id,media_type,media_url,username,timestamp&access_token=" +
-    //   access_token;
-    // xhr3.addEventListener("readystatechange", function() {
-    //   if (this.readyState === 4) {
-    //     mediaData.push(JSON.parse(this.responseText));
-    //   }
-    // });
-    // xhr3.open("GET", url3);
-    // xhr3.setRequestHeader("Cache-Control", "no-cache");
-    // xhr3.send(data);
+    let xhr3 = new XMLHttpRequest();
+    let url3 =
+      "https://graph.instagram.com/" +
+      mediaId[4] +
+      "?fields=id,media_type,media_url,username,timestamp&access_token=" +
+      access_token;
+    xhr3.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        mediaData.push(JSON.parse(this.responseText));
+      }
+    });
+    xhr3.open("GET", url3);
+    xhr3.setRequestHeader("Cache-Control", "no-cache");
+    xhr3.send(data);
 
-    // setTimeout(function() {
-    //   that.setState({ allMediaData: mediaData });
-    // }, 1000);
+    setTimeout(function() {
+      that.setState({ allMediaData: mediaData });
+    }, 1000);
 
-    // //xhr for sixth post
+    //xhr for sixth post
 
-    // let xhr4 = new XMLHttpRequest();
-    // let url4 =
-    //   "https://graph.instagram.com/" +
-    //   mediaId[5] +
-    //   "?fields=id,media_type,media_url,username,timestamp&access_token=" +
-    //   access_token;
-    // xhr4.addEventListener("readystatechange", function() {
-    //   if (this.readyState === 4) {
-    //     mediaData.push(JSON.parse(this.responseText));
-    //   }
-    // });
-    // xhr4.open("GET", url4);
-    // xhr4.setRequestHeader("Cache-Control", "no-cache");
-    // xhr4.send(data);
+    let xhr4 = new XMLHttpRequest();
+    let url4 =
+      "https://graph.instagram.com/" +
+      mediaId[5] +
+      "?fields=id,media_type,media_url,username,timestamp&access_token=" +
+      access_token;
+    xhr4.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        mediaData.push(JSON.parse(this.responseText));
+      }
+    });
+    xhr4.open("GET", url4);
+    xhr4.setRequestHeader("Cache-Control", "no-cache");
+    xhr4.send(data);
 
-    // setTimeout(function() {
-    //   that.setState({ allMediaData: mediaData });
-    // }, 1000);
+    setTimeout(function() {
+      that.setState({ allMediaData: mediaData });
+    }, 1000);
 
-    // //xhr for seventh post
+    //xhr for seventh post
 
-    // let xhr5 = new XMLHttpRequest();
-    // let url5 =
-    //   "https://graph.instagram.com/" +
-    //   mediaId[6] +
-    //   "?fields=id,media_type,media_url,username,timestamp&access_token=" +
-    //   access_token;
-    // xhr5.addEventListener("readystatechange", function() {
-    //   if (this.readyState === 4) {
-    //     mediaData.push(JSON.parse(this.responseText));
-    //   }
-    // });
-    // xhr5.open("GET", url5);
-    // xhr5.setRequestHeader("Cache-Control", "no-cache");
-    // xhr5.send(data);
+    let xhr5 = new XMLHttpRequest();
+    let url5 =
+      "https://graph.instagram.com/" +
+      mediaId[6] +
+      "?fields=id,media_type,media_url,username,timestamp&access_token=" +
+      access_token;
+    xhr5.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        mediaData.push(JSON.parse(this.responseText));
+      }
+    });
+    xhr5.open("GET", url5);
+    xhr5.setRequestHeader("Cache-Control", "no-cache");
+    xhr5.send(data);
 
-    // setTimeout(function() {
-    //   that.setState({ allMediaData: mediaData });
-    // }, 1000);
+    setTimeout(function() {
+      that.setState({ allMediaData: mediaData });
+    }, 1000);
 
-    // //xhr for eigth post
+    //xhr for eigth post
 
-    // let xhr6 = new XMLHttpRequest();
-    // let url6 =
-    //   "https://graph.instagram.com/" +
-    //   mediaId[7] +
-    //   "?fields=id,media_type,media_url,username,timestamp&access_token=" +
-    //   access_token;
-    // xhr6.addEventListener("readystatechange", function() {
-    //   if (this.readyState === 4) {
-    //     mediaData.push(JSON.parse(this.responseText));
-    //   }
-    // });
-    // xhr6.open("GET", url6);
-    // xhr6.setRequestHeader("Cache-Control", "no-cache");
-    // xhr6.send(data);
+    let xhr6 = new XMLHttpRequest();
+    let url6 =
+      "https://graph.instagram.com/" +
+      mediaId[7] +
+      "?fields=id,media_type,media_url,username,timestamp&access_token=" +
+      access_token;
+    xhr6.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        mediaData.push(JSON.parse(this.responseText));
+      }
+    });
+    xhr6.open("GET", url6);
+    xhr6.setRequestHeader("Cache-Control", "no-cache");
+    xhr6.send(data);
 
-    // setTimeout(function() {
-    //   that.setState({ allMediaData: mediaData });
-    // }, 1000);
+    setTimeout(function() {
+      that.setState({ allMediaData: mediaData });
+    }, 1000);
 
-    // //xhr for ninth post
+    //xhr for ninth post
 
-    // let xhr7 = new XMLHttpRequest();
-    // let url7 =
-    //   "https://graph.instagram.com/" +
-    //   mediaId[8] +
-    //   "?fields=id,media_type,media_url,username,timestamp&access_token=" +
-    //   access_token;
-    // xhr7.addEventListener("readystatechange", function() {
-    //   if (this.readyState === 4) {
-    //     mediaData.push(JSON.parse(this.responseText));
-    //   }
-    // });
-    // xhr7.open("GET", url7);
-    // xhr7.setRequestHeader("Cache-Control", "no-cache");
-    // xhr7.send(data);
+    let xhr7 = new XMLHttpRequest();
+    let url7 =
+      "https://graph.instagram.com/" +
+      mediaId[8] +
+      "?fields=id,media_type,media_url,username,timestamp&access_token=" +
+      access_token;
+    xhr7.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        mediaData.push(JSON.parse(this.responseText));
+      }
+    });
+    xhr7.open("GET", url7);
+    xhr7.setRequestHeader("Cache-Control", "no-cache");
+    xhr7.send(data);
 
-    // setTimeout(function() {
-    //   that.setState({ allMediaData: mediaData });
-    // }, 1000);
+    setTimeout(function() {
+      that.setState({ allMediaData: mediaData });
+    }, 1000);
 
-    // //xhr for tenth post
+    //xhr for tenth post
 
-    // let xhr8 = new XMLHttpRequest();
-    // let url8 =
-    //   "https://graph.instagram.com/" +
-    //   mediaId[9] +
-    //   "?fields=id,media_type,media_url,username,timestamp&access_token=" +
-    //   access_token;
-    // xhr8.addEventListener("readystatechange", function() {
-    //   if (this.readyState === 4) {
-    //     mediaData.push(JSON.parse(this.responseText));
-    //   }
-    // });
-    // xhr8.open("GET", url8);
-    // xhr8.setRequestHeader("Cache-Control", "no-cache");
-    // xhr8.send(data);
+    let xhr8 = new XMLHttpRequest();
+    let url8 =
+      "https://graph.instagram.com/" +
+      mediaId[9] +
+      "?fields=id,media_type,media_url,username,timestamp&access_token=" +
+      access_token;
+    xhr8.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        mediaData.push(JSON.parse(this.responseText));
+      }
+    });
+    xhr8.open("GET", url8);
+    xhr8.setRequestHeader("Cache-Control", "no-cache");
+    xhr8.send(data);
 
-    // setTimeout(function() {
-    //   that.setState({ allMediaData: mediaData });
-    // }, 1000);
+    setTimeout(function() {
+      that.setState({ allMediaData: mediaData });
+    }, 1000);
 
     //xhr for postsList
 

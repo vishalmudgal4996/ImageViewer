@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Header.css";
+import { withRouter } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { withStyles } from "@material-ui/core/styles";
@@ -96,8 +97,14 @@ class Header extends Component {
     this.setState({ anchorEl: event.currentTarget });
   };
 
-  handleClose = () => {
+  handleMyAccountClose = () => {
     this.setState({ anchorEl: null });
+  };
+
+  handleLogoutClose = () => {
+    this.setState({ anchorEl: null });
+    this.props.history.push("/");
+    sessionStorage.removeItem("access-token");
   };
 
   render() {
@@ -141,11 +148,11 @@ class Header extends Component {
                     open={Boolean(this.state.anchorEl)}
                     onClose={this.handleClose}
                   >
-                    <StyledMenuItem onClick={this.handleClose}>
+                    <StyledMenuItem onClick={this.handleMyAccountClose}>
                       My Account
                     </StyledMenuItem>
                     <hr style={{ width: "75%" }} />
-                    <StyledMenuItem onClick={this.handleClose}>
+                    <StyledMenuItem onClick={this.handleLogoutClose}>
                       Logout
                     </StyledMenuItem>
                   </StyledMenu>
@@ -161,4 +168,4 @@ class Header extends Component {
   }
 }
 
-export default withStyles(styles)(Header);
+export default withRouter(withStyles(styles)(Header));
