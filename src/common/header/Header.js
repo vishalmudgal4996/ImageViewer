@@ -97,6 +97,10 @@ class Header extends Component {
     this.setState({ anchorEl: event.currentTarget });
   };
 
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+
   handleMyAccountClose = () => {
     this.setState({ anchorEl: null });
     this.props.history.push("/profile");
@@ -153,6 +157,34 @@ class Header extends Component {
                       My Account
                     </StyledMenuItem>
                     <hr style={{ width: "75%" }} />
+                    <StyledMenuItem onClick={this.handleLogoutClose}>
+                      Logout
+                    </StyledMenuItem>
+                  </StyledMenu>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            {this.props.profileOptions === "true" ? (
+              <div className="profilepage-header">
+                <div className="avatar">
+                  <IconButton
+                    aria-label="account of current user"
+                    aria-controls="customized-menu"
+                    aria-haspopup="true"
+                    onClick={this.handleMenu}
+                    color="inherit"
+                  >
+                    <AccountCircle style={{ fontSize: 48 }} />
+                  </IconButton>
+                  <StyledMenu
+                    id="customized-menu"
+                    anchorEl={this.state.anchorEl}
+                    keepMounted
+                    open={Boolean(this.state.anchorEl)}
+                    onClose={this.handleClose}
+                  >
                     <StyledMenuItem onClick={this.handleLogoutClose}>
                       Logout
                     </StyledMenuItem>
