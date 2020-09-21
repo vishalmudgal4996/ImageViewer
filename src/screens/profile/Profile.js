@@ -365,7 +365,7 @@ class Profile extends Component {
                     <Typography variant="h6">Username</Typography>
                   </div>
                   <div className="account-details">
-                    <Typography variant="subtitle1">Posts: 6</Typography>
+                    <Typography variant="subtitle1">Posts: 10</Typography>
                     <Typography variant="subtitle1">Follows: 4</Typography>
                     <Typography variant="subtitle1">Followed By: 6</Typography>
                   </div>
