@@ -329,7 +329,7 @@ class Home extends Component {
         <Header homeOptions="true" />
         <div className="posts-flex-container">
           <div className="posts">
-            <GridList cellHeight={700} cols={2} className={classes.gridList}>
+            <GridList cellHeight={650} cols={2} className={classes.gridList}>
               {this.state.allMediaData.map((post) => (
                 <GridListTile key={"post" + post.id} className="gridlisttile">
                   <Card key={"card" + post.id} className="cardStyle">
