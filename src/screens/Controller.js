@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "../screens/login/Login";
 import Home from "../screens/home/Home";
 import PrivateRoute from "../common/PrivateRoute";
+import Profile from "../screens/profile/Profile";
 
 class Controller extends Component {
   constructor() {
@@ -27,7 +28,13 @@ class Controller extends Component {
               path="/home"
               component={Home}
               baseUrl={this.baseUrl}
-            />{" "}
+            />
+            <PrivateRoute
+              exact
+              path="/profile"
+              component={Profile}
+              baseUrl={this.baseUrl}
+            />
           </Switch>
         </div>
       </Router>

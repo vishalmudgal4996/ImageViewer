@@ -99,6 +99,7 @@ class Header extends Component {
 
   handleMyAccountClose = () => {
     this.setState({ anchorEl: null });
+    this.props.history.push("/profile");
   };
 
   handleLogoutClose = () => {
