@@ -89,7 +89,7 @@ class Home extends Component {
     let mediaData = [];
 
     let url =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[0] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -110,7 +110,7 @@ class Home extends Component {
 
     let xhr0 = new XMLHttpRequest();
     let url0 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[1] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -131,7 +131,7 @@ class Home extends Component {
 
     let xhr1 = new XMLHttpRequest();
     let url1 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[2] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -152,7 +152,7 @@ class Home extends Component {
 
     let xhr2 = new XMLHttpRequest();
     let url2 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[3] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -173,7 +173,7 @@ class Home extends Component {
 
     let xhr3 = new XMLHttpRequest();
     let url3 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[4] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -194,7 +194,7 @@ class Home extends Component {
 
     let xhr4 = new XMLHttpRequest();
     let url4 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[5] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -215,7 +215,7 @@ class Home extends Component {
 
     let xhr5 = new XMLHttpRequest();
     let url5 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[6] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -236,7 +236,7 @@ class Home extends Component {
 
     let xhr6 = new XMLHttpRequest();
     let url6 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[7] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -257,7 +257,7 @@ class Home extends Component {
 
     let xhr7 = new XMLHttpRequest();
     let url7 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[8] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -278,7 +278,7 @@ class Home extends Component {
 
     let xhr8 = new XMLHttpRequest();
     let url8 =
-      "https://graph.instagram.com/" +
+      this.props.baseUrl +
       mediaId[9] +
       "?fields=id,media_type,media_url,username,timestamp&access_token=" +
       access_token;
@@ -300,7 +300,8 @@ class Home extends Component {
     let postData = null;
     let postXhr = new XMLHttpRequest();
     let postUrl =
-      "https://graph.instagram.com/me/media?fields=id,caption&access_token=" +
+      this.props.baseUrl +
+      "me/media?fields=id,caption&access_token=" +
       access_token;
     let postList = [];
     postXhr.addEventListener("readystatechange", function() {

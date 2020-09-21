@@ -8,7 +8,7 @@ import Profile from "../screens/profile/Profile";
 class Controller extends Component {
   constructor() {
     super();
-    this.baseUrl = "";
+    this.baseUrl = "https://graph.instagram.com/";
     this.state = {
       loggedIn: sessionStorage.getItem("access-token") == null ? false : true,
     };
