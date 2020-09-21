@@ -57,3 +57,15 @@
 .profile-body {
   background-color: cadetblue;
 }
+
+.dispNone {
+  display: none;
+}
+
+.dispBlock {
+  display: block;
+}
+
+.red {
+  color: red;
+}
