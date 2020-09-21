@@ -1,0 +1,54 @@
+.posts-flex-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(245, 240, 240, 0.76);
+}
+
+.posts-flex-container > div {
+  margin: 20px;
+}
+
+#comment-btn {
+  width: max-content;
+}
+
+.cardStyle {
+  width: 425px;
+  padding: 2% !important;
+  text-align: left;
+  height: auto;
+}
+
+.posts {
+  width: 70%;
+  height: auto;
+}
+
+.posts ul li {
+  margin-bottom: 20px;
+}
+
+.like-info {
+  margin-left: 20px;
+}
+
+.hashtag-info {
+  color: skyblue;
+}
+
+.comment-container {
+  display: flex;
+  margin-left: 8px;
+}
+
+.marginApply {
+  margin: 16px 0px 0px 16px;
+}
+
+.addcomment-input {
+  width: 70%;
+}
+
+.formControl {
+  width: 100%;
+}
