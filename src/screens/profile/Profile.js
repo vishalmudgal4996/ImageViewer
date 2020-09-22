@@ -457,7 +457,7 @@ class Profile extends Component {
                   <div className="post-modal">
                     <div className="post-modal-left">
                       <img
-                        src="https://cdn.valorantinfo.gg/img/cards/tall/No%20One%20Left%20Behind.jpg"
+                        src={post.media_url}
                         alt="postimage"
                         className="post-image"
                       />
