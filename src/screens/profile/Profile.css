@@ -73,3 +73,90 @@
 .post-grid-item {
   cursor: pointer;
 }
+
+.profile-post-container {
+  display: flex;
+  width: 300px;
+  height: 300px;
+}
+
+.post-modal {
+  display: flex;
+  height: 100%;
+}
+.post-modal-left {
+  width: auto;
+  height: 100%;
+  margin-right: 10px;
+}
+.post-image {
+  height: 450px;
+  width: 425px;
+}
+.post-modal-right {
+  width: 50%;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+.post-modal-right > div {
+  margin-bottom: 1px;
+  height: 50px;
+  width: 400px;
+}
+
+.post-modal-right-item1 {
+  display: flex;
+  align-items: center;
+}
+
+.post-modal-right-item1 button {
+  padding: 0px;
+}
+
+.post-modal-right-item2 {
+  height: 5px !important;
+  display: flex;
+  align-items: center;
+}
+
+.post-modal-right-item3-subitem1 {
+  height: 20px !important;
+}
+
+.post-modal-right-item3-subitem2 {
+  color: skyblue;
+}
+
+.post-modal-right-item4 {
+  height: 287px !important;
+}
+
+.like-info {
+  margin-left: 20px;
+}
+
+.post-modal-right-item5 {
+  display: flex;
+  align-items: center;
+}
+
+.post-modal-right-item6 {
+  display: flex;
+}
+
+.addcomment-input {
+  width: 70%;
+}
+
+.formControl {
+  width: 100%;
+}
+
+.marginApply {
+  margin: 16px 0px 0px 16px;
+}
+
+#comment-btn-post-modal {
+  width: max-content;
+}

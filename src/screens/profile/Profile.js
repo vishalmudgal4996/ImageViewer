@@ -15,6 +15,8 @@ import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const TabContainer = function(props) {
   return (
@@ -39,11 +41,23 @@ const customModalStyle = {
   },
 };
 
+const customPostModalStyle = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
+
 class Profile extends Component {
   constructor() {
     super();
     this.state = {
       modalIsOpen: false,
+      postModalIsOpen: false,
       fullname: "",
       fullnameRequired: "dispNone",
       initialTitle: "UpGrad Education",
@@ -69,6 +83,16 @@ class Profile extends Component {
     this.setState({ modalIsOpen: false });
   };
 
+  openPostModalHandler = () => {
+    this.setState({
+      postModalIsOpen: true,
+    });
+  };
+
+  closePostModalHandler = () => {
+    this.setState({ postModalIsOpen: false });
+  };
+
   inputFullnameChangeHandler = (e) => {
     this.setState({ fullname: e.target.value });
   };
@@ -85,9 +109,27 @@ class Profile extends Component {
     }
   };
 
+  postUnlikeHandler() {
+    this.setState({ postLiked: false, likes: this.state.likes - 1 });
+  }
+
+  postLikeHandler() {
+    this.setState({ postLiked: true, likes: this.state.likes + 1 });
+  }
+
+  commentChangeHandler = (event) => {
+    this.setState({ comment: event.target.value });
+  };
+
+  commentAddClickHandler = () => {
+    let comments = [];
+    comments.push(this.state.comment);
+    this.setState({ commentList: comments });
+    this.setState({ comment: "" });
+  };
+
   UNSAFE_componentWillMount() {
     //xhr for postsId
-
     let mediaId = [
       "17849338345926854",
       "17953177057308057",
@@ -100,15 +142,12 @@ class Profile extends Component {
       "17866284601346963",
       "17879771056075105",
     ];
-
     //xhr for first post
-
     let data = null;
     let xhr = new XMLHttpRequest();
     let that = this;
     let access_token = this.state.access_token;
     let mediaData = [];
-
     let url =
       this.props.baseUrl +
       mediaId[0] +
@@ -122,13 +161,10 @@ class Profile extends Component {
     xhr.open("GET", url);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     // xhr for second post
-
     let xhr0 = new XMLHttpRequest();
     let url0 =
       this.props.baseUrl +
@@ -143,13 +179,10 @@ class Profile extends Component {
     xhr0.open("GET", url0);
     xhr0.setRequestHeader("Cache-Control", "no-cache");
     xhr0.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for third post
-
     let xhr1 = new XMLHttpRequest();
     let url1 =
       this.props.baseUrl +
@@ -164,13 +197,10 @@ class Profile extends Component {
     xhr1.open("GET", url1);
     xhr1.setRequestHeader("Cache-Control", "no-cache");
     xhr1.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for fourth post
-
     let xhr2 = new XMLHttpRequest();
     let url2 =
       this.props.baseUrl +
@@ -185,13 +215,10 @@ class Profile extends Component {
     xhr2.open("GET", url2);
     xhr2.setRequestHeader("Cache-Control", "no-cache");
     xhr2.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for fifth post
-
     let xhr3 = new XMLHttpRequest();
     let url3 =
       this.props.baseUrl +
@@ -206,13 +233,10 @@ class Profile extends Component {
     xhr3.open("GET", url3);
     xhr3.setRequestHeader("Cache-Control", "no-cache");
     xhr3.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for sixth post
-
     let xhr4 = new XMLHttpRequest();
     let url4 =
       this.props.baseUrl +
@@ -227,13 +251,10 @@ class Profile extends Component {
     xhr4.open("GET", url4);
     xhr4.setRequestHeader("Cache-Control", "no-cache");
     xhr4.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for seventh post
-
     let xhr5 = new XMLHttpRequest();
     let url5 =
       this.props.baseUrl +
@@ -248,13 +269,10 @@ class Profile extends Component {
     xhr5.open("GET", url5);
     xhr5.setRequestHeader("Cache-Control", "no-cache");
     xhr5.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for eigth post
-
     let xhr6 = new XMLHttpRequest();
     let url6 =
       this.props.baseUrl +
@@ -269,13 +287,10 @@ class Profile extends Component {
     xhr6.open("GET", url6);
     xhr6.setRequestHeader("Cache-Control", "no-cache");
     xhr6.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for ninth post
-
     let xhr7 = new XMLHttpRequest();
     let url7 =
       this.props.baseUrl +
@@ -290,13 +305,10 @@ class Profile extends Component {
     xhr7.open("GET", url7);
     xhr7.setRequestHeader("Cache-Control", "no-cache");
     xhr7.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for tenth post
-
     let xhr8 = new XMLHttpRequest();
     let url8 =
       this.props.baseUrl +
@@ -311,13 +323,10 @@ class Profile extends Component {
     xhr8.open("GET", url8);
     xhr8.setRequestHeader("Cache-Control", "no-cache");
     xhr8.send(data);
-
     setTimeout(function() {
       that.setState({ allMediaData: mediaData });
     }, 1000);
-
     //xhr for postsList
-
     let postData = null;
     let postXhr = new XMLHttpRequest();
     let postUrl =
@@ -333,7 +342,6 @@ class Profile extends Component {
     postXhr.open("GET", postUrl);
     postXhr.setRequestHeader("Cache-Control", "no-cache");
     postXhr.send(postData);
-
     setTimeout(function() {
       let stringify = JSON.stringify(postList);
       let result = stringify.substring(1, stringify.length - 1);
@@ -434,10 +442,112 @@ class Profile extends Component {
                       src={post.media_url}
                       className="post-poster"
                       alt={post.timestamp}
+                      onClick={this.openPostModalHandler}
                     />
                   </GridListTile>
                 ))}
               </GridList>
+              {this.state.allMediaData.map((post) => (
+                <Modal
+                  ariaHideApp={false}
+                  isOpen={this.state.postModalIsOpen}
+                  onRequestClose={this.closePostModalHandler}
+                  style={customPostModalStyle}
+                >
+                  <div className="post-modal">
+                    <div className="post-modal-left">
+                      <img
+                        src="https://cdn.valorantinfo.gg/img/cards/tall/No%20One%20Left%20Behind.jpg"
+                        alt="postimage"
+                        className="post-image"
+                      />
+                    </div>
+                    <div className="post-modal-right">
+                      <div className="post-modal-right-item1">
+                        <IconButton
+                          aria-label="account of current user"
+                          aria-controls="customized-menu"
+                          aria-haspopup="true"
+                          color="inherit"
+                        >
+                          <AccountCircle style={{ fontSize: 50 }} />
+                        </IconButton>
+                        <div className="account-username">
+                          <Typography variant="subtitle2">
+                            {post.username}
+                          </Typography>
+                        </div>
+                      </div>
+                      <div className="post-modal-right-item2">
+                        <hr style={{ color: "grey", width: "90%" }} />
+                      </div>
+                      <div className="post-modal-right-item3">
+                        <div className="post-modal-right-item3-subitem1">
+                          <Typography variant="subtitle1">
+                            UpGrad Your Skills Today!
+                          </Typography>
+                        </div>
+                        <div className="post-modal-right-item3-subitem2">
+                          <Typography variant="body1">#travel#study</Typography>
+                        </div>
+                      </div>
+                      <div className="post-modal-right-item4">
+                        {this.state.commentList.map((comment) => (
+                          <div>
+                            <span className="comment-username">
+                              {post.username} :{" " + comment}
+                            </span>
+                            <br />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="post-modal-right-item5">
+                        {this.state.postLiked ? (
+                          <FavoriteIcon
+                            fontSize="large"
+                            color="secondary"
+                            onClick={this.postUnlikeHandler.bind(this)}
+                          />
+                        ) : (
+                          <FavoriteBorderIcon
+                            fontSize="large"
+                            onClick={this.postLikeHandler.bind(this)}
+                          />
+                        )}
+                        <Typography variant="h6">
+                          <span className="like-info">
+                            {this.state.likes} likes
+                          </span>
+                        </Typography>
+                      </div>
+                      <div className="post-modal-right-item6">
+                        <div className="addcomment-input">
+                          <FormControl className="formControl">
+                            <InputLabel htmlFor="comment">
+                              Add a comment
+                            </InputLabel>
+                            <Input
+                              id="post-comment-input"
+                              onChange={this.commentChangeHandler}
+                              value={this.state.comment}
+                            />
+                          </FormControl>
+                        </div>
+                        <div className="marginApply">
+                          <Button
+                            id="comment-btn-post-modal"
+                            variant="contained"
+                            color="primary"
+                            onClick={this.commentAddClickHandler.bind(this)}
+                          >
+                            ADD
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Modal>
+              ))}
             </div>
           </div>
         </div>
