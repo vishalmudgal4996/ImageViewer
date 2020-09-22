@@ -8,6 +8,13 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import Button from "@material-ui/core/Button";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import Modal from "react-modal";
+import Typography from "@material-ui/core/Typography";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Input from "@material-ui/core/Input";
 
 const styles = (theme) => ({
   search: {
@@ -44,6 +51,9 @@ const styles = (theme) => ({
     [theme.breakpoints.up("md")]: {
       width: "20ch",
     },
+  },
+  button: {
+    margin: theme.spacing(1),
   },
 });
 
@@ -84,13 +94,34 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
+const customModalStyle = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    height: "770px !important",
+  },
+};
+
 class Header extends Component {
   constructor() {
     super();
     this.state = {
       anchorEl: null,
       open: false,
+      modalIsOpen: false,
+      file: null,
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      file: URL.createObjectURL(event.target.files[0]),
+    });
   }
 
   handleMenu = (event) => {
@@ -110,6 +141,16 @@ class Header extends Component {
     this.setState({ anchorEl: null });
     this.props.history.push("/");
     sessionStorage.removeItem("access-token");
+  };
+
+  openModalHandler = () => {
+    this.setState({
+      modalIsOpen: true,
+    });
+  };
+
+  closeModalHandler = () => {
+    this.setState({ modalIsOpen: false });
   };
 
   render() {
@@ -135,6 +176,17 @@ class Header extends Component {
                     }}
                     inputProps={{ "aria-label": "search" }}
                   />
+                </div>
+                <div className="upload">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                    endIcon={<CloudUploadIcon />}
+                    onClick={this.openModalHandler}
+                  >
+                    Upload
+                  </Button>
                 </div>
                 <div className="avatar">
                   <IconButton
@@ -162,6 +214,54 @@ class Header extends Component {
                     </StyledMenuItem>
                   </StyledMenu>
                 </div>
+                <Modal
+                  ariaHideApp={false}
+                  isOpen={this.state.modalIsOpen}
+                  onRequestClose={this.closeModalHandler}
+                  style={customModalStyle}
+                >
+                  <Typography variant="h4" id="modal-title">
+                    UPLOAD
+                  </Typography>
+                  <br />
+                  <div className="upload-image">
+                    <input type="file" onChange={this.handleChange} />
+                    <br />
+                    <br />
+                    <div className="upload-image-preview">
+                      <img
+                        className="selected-image"
+                        src={this.state.file}
+                        alt="uploadedfile"
+                      />
+                    </div>
+                  </div>
+                  <div className="upload-image-description">
+                    <FormControl className="formControl">
+                      <InputLabel htmlFor="description">Description</InputLabel>
+                      <Input id="description-input" />
+                    </FormControl>
+                  </div>
+                  <br />
+                  <br />
+                  <div className="upload-image-hashtags">
+                    <FormControl className="formControl">
+                      <InputLabel htmlFor="hashtags">Hashtags</InputLabel>
+                      <Input id="hashtags-input" />
+                    </FormControl>
+                  </div>
+                  <br />
+                  <br />
+                  <div>
+                    <Button
+                      id="upload-btn"
+                      variant="contained"
+                      color="secondary"
+                    >
+                      UPLOAD
+                    </Button>
+                  </div>
+                </Modal>
               </div>
             ) : (
               ""

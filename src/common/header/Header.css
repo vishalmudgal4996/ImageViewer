@@ -27,3 +27,17 @@
   height: 42px;
   align-items: center;
 }
+
+/* .upload-image-preview {
+  width: 450px;
+  height: 430px;
+} */
+
+.selected-image {
+  width: 450px;
+  height: 350px;
+}
+
+.formControl {
+  width: 100%;
+}
